@@ -4,10 +4,9 @@ define([
     'jquery',
     'createjs',
     'utils/utils',
-    'utils/frameplayer',
     'text!../components/loading.html!strip',
     'jquery.browser'],
-($, createjs, utils, frameplayer, htmlLoading) => {
+($, createjs, utils, htmlLoading) => {
     return (callback) => {
         // 如果小于ie9，则取消loading（createjs不支持）;
         if ($.browser.msie && $.browser.version < 9) {
@@ -25,37 +24,16 @@ define([
         let elLoading = null;
         var source = [
             { 'src': 'common/block/landscape.png' },
-            { 'src': 'common/loading/sprite.jpg' }
+            { 'src': 'common/loading/1.png' },
+            { 'src': 'common/loading/2.png' }
         ];
 
         loader.on('complete', onComplete);
         loader.loadManifest(source, true, 'assets/img/');
 
-        var t = null;
-
         function onComplete() {
             $('body').append(htmlLoading);
-
             elLoading = $('.sys-loading');
-
-            t = frameplayer({
-                target: elLoading.find('.movie'),
-                total: 66,
-                row: 10,
-                loop: true,
-                loopDelay: 0,
-                // loopTimes:3,
-                fps: 6,
-                scale: 2,
-                autosize: false,
-                onProgress(frame) {
-                    // console.log(frame);
-                }
-            });
-
-            // t.breakpoint(20);
-            t.play();
-
             mainload();
         }
 
@@ -79,7 +57,6 @@ define([
 
             function onComplete() {
                 setTimeout(() => {
-                    t.stop();
                     elLoading.fadeOut();
                     utils.tryFun(callback);
                 }, 10);

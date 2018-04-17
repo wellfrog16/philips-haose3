@@ -6,44 +6,52 @@
     text-align: center;
     top: 0;
     left: 0;
-    // line-height: 90vh;
     z-index: 99;
-    background-color: #f5e7da;
+    background-color: #000;
+    overflow: hidden;
 
-    .movie {
+    .wrapper {
+        @url1: '../assets/img/common/loading/1.png';
+        @url2: '../assets/img/common/loading/2.png';
+
+        position: relative;
+        width: image-width(@url1);
         margin: 30vh auto 0 auto;
-        width: 80px;
-        height: 143px;
-        background-image: url('../assets/img/common/loading/sprite.jpg');
-    }
 
-    .progress {
-        height: 3px; /*no*/
-        width: 32vw;
-        border: 1px solid #d7b48c; /*no*/
-        background-color: #fff;
-        position: absolute;
-        bottom: 20px; /*no*/
-        left: 34vw;
-        text-align: center;
-    }
+        > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-    .text {
-        position: absolute;
-        width: 100%;
-        height: 20px;
-        bottom: 30px; /*no*/
-        font-size: 12px;
+        .circle {
+            width: image-width(@url1);
+            height: image-height(@url1);
+            background-image: data-uri(@url1);
+            background-size: contain;
+        }
 
-        span {
-            color: #d7b48c;
-            font-size: 10px; /*no*/
+        .progress {
+            width: image-width(@url2);
+            height: image-height(@url2);
+            background-image: data-uri(@url2);
+            background-size: contain;
+            animation: kf-rotate 1s linear infinite;
         }
     }
 
-    .line {
-        height: 3px; /*no*/
-        width: 0%;
-        background-color: #d7b48c;
+    .text {
+        top: 30vh;
+        position: relative;
+        color: #fff;
+
+        h1 {
+            font-weight: normal;
+            font-size: 16px; /*no*/
+        }
+
+        span {
+            font-size: 14px; /*no*/
+        }
     }
 }
