@@ -41,8 +41,8 @@
         'velocity': ['lib/velocity/velocity.min'],
         'velocity.ui': ['lib/velocity/velocity.ui.min'],
 
-        // // 滚动条
-        // 'iscroll': 'lib/iscroll/iscroll-5.2.0',
+        // 滚动条
+        'iscroll': 'lib/iscroll/iscroll-5.2.0',
 
         // helper
         // 'utils': 'utils/helper',
@@ -53,7 +53,12 @@
         // js直接引用成app/xxx 会导致text!xxx.html加载路径错误
         'loader': 'app/loader',
         'script': 'app/script',
-        'music': 'app/music'
+        'music': 'app/music',
+
+        // section
+        // --------------------------------------
+        'section1': 'app/section1',
+        'section2': 'app/section2'
     },
 
     shim: {

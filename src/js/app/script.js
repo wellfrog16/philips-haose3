@@ -5,11 +5,10 @@ define([
     'utils/utils',
     'loader',
     'music',
-    'text!../components/block.html!strip',
-    'text!../components/index.html!strip',
-    'velocity',
-    'velocity.ui'],
-($, utils, loader, music, htmlBlock, htmlIndex) => {
+    'section1',
+    'section2',
+    'text!../components/block.html!strip'],
+($, utils, loader, music, section1, section2, htmlBlock) => {
     return () => {
         // 加载jquery插件
         utils.jqueryPlugins();
@@ -19,16 +18,16 @@ define([
         if (!utils.isPC) { $('body').append(htmlBlock); }
 
         loader(() => {
-            $('body').append(htmlIndex);
             console.log('123');
+
+            section1.mount($('body'));
+            section2.mount($('body'));
 
             // const a = music(false);
 
             // setInterval(() => {
             //     console.log(a.playing);
             // }, 1000);
-
-            $('.qq').velocity({ width: '300px' });
         });
     };
 });

@@ -15,17 +15,19 @@
             // 自动根据屏幕调整元素尺寸
             autofixStyle: function(options) {
                 var args = {
-                    baseWidth: $(window).width(), // 元素原先参照容器宽度
-                    designWidth: $(window).width(), // 元素现在参照容器宽度
+                    baseWidth: $(window).height(), // 元素原先参照容器宽度
+                    designWidth: $(window).height(), // 元素现在参照容器宽度
                     changeFontSize: false
                 };
 
                 $.extend(args, options);
 
+                console.log(args);
+
                 args.scaleNum = args.designWidth / args.baseWidth;
                 this.each((index, item) => {
                     var o = $(item);
-                    var fix = o.attr('data-fixStyle') || 'top,left,bottom,right,width,height'; // 需要调整的方向，默认top-left
+                    var fix = o.attr('data-fixStyle') || 'top,left,width,height'; // 需要调整的方向，默认top-left
                     var fixArray = fix.split(',');
 
                     $.each(fixArray, (index, item) => {

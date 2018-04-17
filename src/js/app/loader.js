@@ -24,8 +24,8 @@ define([
 
         let elLoading = null;
         var source = [
-            { 'src': 'main/landscape.png' },
-            { 'src': 'main/loading.jpg' }
+            { 'src': 'common/block/landscape.png' },
+            { 'src': 'common/loading/sprite.jpg' }
         ];
 
         loader.on('complete', onComplete);
@@ -68,7 +68,9 @@ define([
             loader.maintainScriptOrder = true;
 
             var source = [
-                { 'src': 'main/loading.jpg' }
+                { 'src': 'common/icon/icon-music.png' },
+
+                { 'src': 'main/section2/room.jpg' }
             ];
 
             loader.on('progress', onProgress);
@@ -76,9 +78,11 @@ define([
             loader.loadManifest(source, true, 'assets/img/');
 
             function onComplete() {
-                t.stop();
-                elLoading.fadeOut();
-                utils.tryFun(callback);
+                setTimeout(() => {
+                    t.stop();
+                    elLoading.fadeOut();
+                    utils.tryFun(callback);
+                }, 10);
 
                 console.log('资源加载完成');
             }
