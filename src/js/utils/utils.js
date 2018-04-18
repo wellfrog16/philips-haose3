@@ -13,6 +13,7 @@
             // },
 
             // 自动根据屏幕调整元素尺寸
+            // !!!*** 临时改成参照高度
             autofixStyle: function(options) {
                 var args = {
                     baseWidth: $(window).height(), // 元素原先参照容器宽度
@@ -21,8 +22,6 @@
                 };
 
                 $.extend(args, options);
-
-                console.log(args);
 
                 args.scaleNum = args.designWidth / args.baseWidth;
                 this.each((index, item) => {
@@ -79,7 +78,7 @@
 
         // 下面的640表示设计稿大小，50(px)是rem基数
         designWidth = designWidth || 640;
-        radix = radix || 50;
+        radix = radix || 64;
 
         function refreshRem() {
             // 获取当前窗口的宽度

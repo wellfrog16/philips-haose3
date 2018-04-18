@@ -1,5 +1,6 @@
 ﻿@import './config.less'; // 配置变量
 @import './modules/common.less'; // 全局设置
+@import './modules/icon.less'; // icon
 @import './modules/keyframes.less'; // 动画
 @import './modules/block.less'; // 横竖屏设置
 @import './modules/loading.less'; // loading样式
@@ -8,6 +9,7 @@
 @import './modules/music.less'; // music样式
 @import './modules/section1.less';
 @import './modules/section2.less';
+@import './modules/logo.less';
 
 // ------------------------------------初始化-----------------------------------------
 html, body {
@@ -23,6 +25,12 @@ body {
 
 // ------------------------------------框架-----------------------------------------
 
+.sys-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 section {
     background-color: #fff;
     position: absolute;
@@ -30,4 +38,5 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }

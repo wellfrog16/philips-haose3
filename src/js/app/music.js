@@ -6,7 +6,7 @@ define([
     'jquery.hammer'],
 ($, helper, createjs, htmlMusic) => {
     return (autoplay) => {
-        $('body').append(htmlMusic);
+        $('.sys-container').append(htmlMusic);
 
         const el = $('.sys-music .toggle i');
         const audio = $('#h5-bg');

@@ -57,6 +57,7 @@
 
         // section
         // --------------------------------------
+        'logo': 'app/logo',
         'section1': 'app/section1',
         'section2': 'app/section2'
     },

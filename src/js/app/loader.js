@@ -4,9 +4,11 @@ define([
     'jquery',
     'createjs',
     'utils/utils',
+    'helper/helper',
     'text!../components/loading.html!strip',
-    'jquery.browser'],
-($, createjs, utils, htmlLoading) => {
+    'jquery.browser',
+    'logo'],
+($, createjs, utils, helper, htmlLoading) => {
     return (callback) => {
         // 如果小于ie9，则取消loading（createjs不支持）;
         if ($.browser.msie && $.browser.version < 9) {
@@ -24,6 +26,9 @@ define([
         let elLoading = null;
         var source = [
             { 'src': 'common/block/landscape.png' },
+
+            { 'src': 'common/icon/icon-logo.png' },
+
             { 'src': 'common/loading/1.png' },
             { 'src': 'common/loading/2.png' }
         ];
@@ -32,7 +37,9 @@ define([
         loader.loadManifest(source, true, 'assets/img/');
 
         function onComplete() {
-            $('body').append(htmlLoading);
+            // 加载logo
+            helper.$logo.mount();
+            helper.$root.append(htmlLoading);
             elLoading = $('.sys-loading');
             mainload();
         }
@@ -48,7 +55,25 @@ define([
             var source = [
                 { 'src': 'common/icon/icon-music.png' },
 
-                { 'src': 'main/section2/room.jpg' }
+                { 'src': 'main/section1/bg.jpg' },
+                { 'src': 'main/section1/btn.png' },
+                { 'src': 'main/section1/monitor.png' },
+                { 'src': 'main/section1/screen.png' },
+                { 'src': 'main/section1/bg.jpg' },
+
+                { 'src': 'main/section2/clue1-ball.png' },
+                { 'src': 'main/section2/clue1-door.png' },
+                { 'src': 'main/section2/clue1-game.png' },
+                { 'src': 'main/section2/clue1-poster.png' },
+                { 'src': 'main/section2/clue2-calendar.png' },
+                { 'src': 'main/section2/clue2-file.png' },
+                { 'src': 'main/section2/hongbao-failed.png' },
+                { 'src': 'main/section2/hongbao-success.png' },
+                { 'src': 'main/section2/hongbao.png' },
+                { 'src': 'main/section2/room.jpg' },
+                { 'src': 'main/section2/tuniu-btn.png' },
+                { 'src': 'main/section2/tuniu-step-1.png' },
+                { 'src': 'main/section2/tuniu-step-2.png' }
             ];
 
             loader.on('progress', onProgress);
@@ -60,8 +85,6 @@ define([
                     elLoading.fadeOut();
                     utils.tryFun(callback);
                 }, 10);
-
-                console.log('资源加载完成');
             }
 
             function onProgress() {

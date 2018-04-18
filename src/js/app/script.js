@@ -3,31 +3,27 @@
 define([
     'jquery',
     'utils/utils',
+    'helper/helper',
     'loader',
     'music',
     'section1',
     'section2',
-    'text!../components/block.html!strip'],
-($, utils, loader, music, section1, section2, htmlBlock) => {
+    'text!../components/block.html!strip',
+    'logo'],
+($, utils, helper, loader, music, section1, section2, htmlBlock) => {
     return () => {
         // 加载jquery插件
         utils.jqueryPlugins();
         utils.fixRem();
 
         // 如果是手机端，加载横屏提示
-        if (!utils.isPC) { $('body').append(htmlBlock); }
+        if (!utils.isPC) { $('.sys-container').append(htmlBlock); }
 
         loader(() => {
-            console.log('123');
+            section1.mount();
+            section2.mount();
 
-            section1.mount($('body'));
-            section2.mount($('body'));
-
-            // const a = music(false);
-
-            // setInterval(() => {
-            //     console.log(a.playing);
-            // }, 1000);
+            music(true);
         });
     };
 });

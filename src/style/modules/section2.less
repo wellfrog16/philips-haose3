@@ -1,6 +1,12 @@
 .section2 {
     z-index: 30;
 
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
     .container {
         position: relative;
         width: 100%;
@@ -27,71 +33,239 @@
             background-color: pink;
             opacity: 0.8;
         }
+
+        // 海报
+        .poster {
+            top: 70px; /*no*/
+            left: 0; /*no*/
+            width: 300px; /*no*/
+            height: 280px; /*no*/
+            transform: rotate(-15deg);
+        }
+
+        // 途牛
+        .tuniu {
+            top: 568px; /*no*/
+            left: 15px; /*no*/
+            width: 120px; /*no*/
+            height: 95px; /*no*/
+            transform: rotate(-20deg);
+        }
+
+        // 日历
+        .calendar {
+            top: 380px; /*no*/
+            left: 165px; /*no*/
+            width: 330px; /*no*/
+            height: 160px; /*no*/
+            transform: rotate(-20deg);
+        }
+
+        .ball {
+            top: 757px; /*no*/
+            left: 375px; /*no*/
+            width: 120px; /*no*/
+            height: 130px; /*no*/
+        }
+
+        .game-crate {
+            top: 428px; /*no*/
+            left: 512px; /*no*/
+            width: 169px; /*no*/
+            height: 105px; /*no*/
+            transform: rotate(20deg);
+        }
+
+        .game-controller {
+            top: 545px; /*no*/
+            left: 572px; /*no*/
+            width: 85px; /*no*/
+            height: 40px; /*no*/
+            transform: rotate(20deg);
+        }
+
+        .file {
+            top: 498px; /*no*/
+            left: 1015px; /*no*/
+            width: 110px; /*no*/
+            height: 170px; /*no*/
+            transform: rotate(15deg);
+        }
+
+        .door {
+            top: 149px; /*no*/
+            left: 1210px; /*no*/
+            width: 200px; /*no*/
+            height: 790px; /*no*/
+            transform: rotate(7deg);
+        }
     }
 
-    // 海报
-    .poster {
-        top: 70px; /*no*/
-        left: 0; /*no*/
-        width: 300px; /*no*/
-        height: 280px; /*no*/
-        transform: rotate(-15deg);
+    .tips {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+
+        > div {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .door {
+            background-image: url('../assets/img/main/section2/clue1-door.png');
+            background-size: 100% auto;
+        }
+
+        .ball {
+            background-image: url('../assets/img/main/section2/clue1-ball.png');
+            background-size: 100% auto;
+        }
+
+        .game {
+            background-image: url('../assets/img/main/section2/clue1-game.png');
+            background-size: 100% auto;
+        }
+
+        .poster {
+            background-image: url('../assets/img/main/section2/clue1-poster.png');
+            background-size: 100% auto;
+        }
+
+        .calendar {
+            background-image: url('../assets/img/main/section2/clue2-calendar.png');
+            background-size: 100% auto;
+        }
+
+        .file {
+            background-image: url('../assets/img/main/section2/clue2-file.png');
+            background-size: 100% auto;
+        }
     }
 
-    // 途牛
-    .tuniu {
-        top: 568px; /*no*/
-        left: 15px; /*no*/
-        width: 120px; /*no*/
-        height: 95px; /*no*/
-        transform: rotate(-20deg);
+    .tuniu-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .step {
+            width: 100%;
+            height: 100%;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position-y: 222px;
+        }
+
+        .step1 {
+            background-image: url('../assets/img/main/section2/tuniu-step-1.png');
+        }
+
+        .step2 {
+            background-image: url('../assets/img/main/section2/tuniu-step-2.png');
+            display: none;
+        }
+
+        .button {
+            position: absolute;
+            width: 100%;
+            top: 866px;
+            z-index: 2;
+
+            span {
+                @url: '../assets/img/main/section2/tuniu-btn.png';
+
+                display: block;
+                background-image: url(@url);
+                background-size: 100%;
+                width: image-width(@url);
+                height: image-height(@url);
+                margin: 0 auto;
+            }
+        }
+
+        .text {
+            position: absolute;
+            top: 690px;
+            text-align: center;
+            width: 100%;
+
+            input {
+                border: 0;
+                font-size: 28px;
+                line-height: 28px;
+                width: 250px;
+                outline: none;
+            }
+        }
     }
 
-    // 日历
-    .calendar {
-        top: 380px; /*no*/
-        left: 165px; /*no*/
-        width: 330px; /*no*/
-        height: 160px; /*no*/
-        transform: rotate(-20deg);
+    .hongbao-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        > div {
+            width: 100%;
+            height: 100%;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .ready {
+            background-image: url('../assets/img/main/section2/hongbao.png');
+        }
+
+        .success {
+            background-image: url('../assets/img/main/section2/hongbao-success.png');
+            display: none;
+        }
+
+        .failed {
+            background-image: url('../assets/img/main/section2/hongbao-failed.png');
+            display: none;
+        }
     }
 
-    .ball {
-        top: 757px; /*no*/
-        left: 375px; /*no*/
-        width: 120px; /*no*/
-        height: 130px; /*no*/
+    .sprite {
+        position: absolute;
+        background-color: transparent !important;
+        opacity: 1 !important;
     }
 
-    .game {
-        top: 428px; /*no*/
-        left: 512px; /*no*/
-        width: 169px; /*no*/
-        height: 105px; /*no*/
-        transform: rotate(20deg);
+    .sprite-game {
+        width: 308px; /*no*/
+        height: 290px; /*no*/
+        background-image: url('../assets/img/main/section2/sprites-game.png');
+        left: 695px; /*no*/
+        top: 305px; /*no*/
     }
+}
 
-    .game-controller {
-        top: 545px; /*no*/
-        left: 572px; /*no*/
-        width: 85px; /*no*/
-        height: 40px; /*no*/
-        transform: rotate(20deg);
-    }
+// pad
+@media screen and (min-width: 768px) {
+    .section2 {
+        .tuniu-container {
+            .step {
+                background-position-y: 80px;
+            }
 
-    .file {
-        top: 498px; /*no*/
-        left: 1015px; /*no*/
-        width: 110px; /*no*/
-        height: 170px; /*no*/
-        transform: rotate(15deg);
-    }
+            .button {
+                top: 710px;
+            }
 
-    .door {
-        top: 149px; /*no*/
-        left: 1210px; /*no*/
-        width: 200px; /*no*/
-        height: 790px; /*no*/
-        transform: rotate(7deg);
+            .text {
+                top: 550px;
+            }
+        }
     }
 }
