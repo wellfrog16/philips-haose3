@@ -30,8 +30,8 @@
 
         div {
             position: absolute;
-            background-color: pink;
-            opacity: 0.8;
+            // background-color: pink;
+            // opacity: 0.8;
         }
 
         // 海报
@@ -114,6 +114,8 @@
             width: 100%;
             height: 100%;
             display: none;
+            background-repeat: no-repeat;
+            background-position-y: center;
         }
 
         .door {
@@ -160,7 +162,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-position-y: 222px;
+            background-position-y: 200px;
         }
 
         .step1 {
@@ -169,6 +171,11 @@
 
         .step2 {
             background-image: url('../assets/img/main/section2/tuniu-step-2.png');
+            display: none;
+        }
+
+        .step3 {
+            background-image: url('../assets/img/main/section2/tuniu-success.png');
             display: none;
         }
 
@@ -192,7 +199,7 @@
 
         .text {
             position: absolute;
-            top: 690px;
+            top: 680px;
             text-align: center;
             width: 100%;
 
@@ -203,6 +210,15 @@
                 width: 250px;
                 outline: none;
             }
+        }
+
+        .error {
+            position: absolute;
+            top: 800px;
+            text-align: center;
+            width: 100%;
+            font-size: 30px;
+            color: #fff;
         }
     }
 
@@ -228,24 +244,79 @@
         .success {
             background-image: url('../assets/img/main/section2/hongbao-success.png');
             display: none;
+            background-position-y: 100px;
         }
 
         .failed {
             background-image: url('../assets/img/main/section2/hongbao-failed.png');
             display: none;
+            background-position-y: 100px;
         }
+    }
+
+    .hongbao-show {
+        animation: kf-scale 1000ms linear;
     }
 
     .sprite {
         position: absolute;
-        background-color: transparent !important;
-        opacity: 1 !important;
+        // background-color: transparent !important;
+        // opacity: 1 !important;
+        display: none;
     }
 
-    .sprite-game {
+    .sprite-ball {
+        width: 120px; /*no*/
+        height: 120px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-ball.png');
+        top: 757px; /*no*/
+        left: 375px; /*no*/
+    }
+
+    .sprite-paper {
+        width: 404px; /*no*/
+        height: 327px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-paper.png');
+        top: 0; /*no*/
+        left: 700px; /*no*/
+    }
+
+    .sprite-monitor-game {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprites-game.png');
+        background-image: url('../assets/img/main/section2/sprite-monitor-game.png');
+        left: 695px; /*no*/
+        top: 305px; /*no*/
+    }
+
+    .sprite-monitor-ball {
+        width: 308px; /*no*/
+        height: 290px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-monitor-ball.png');
+        left: 695px; /*no*/
+        top: 305px; /*no*/
+    }
+
+    .sprite-monitor-poster {
+        width: 308px; /*no*/
+        height: 290px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-monitor-poster.png');
+        left: 695px; /*no*/
+        top: 305px; /*no*/
+    }
+
+    .sprite-monitor-door {
+        width: 308px; /*no*/
+        height: 290px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-monitor-door.png');
+        left: 695px; /*no*/
+        top: 305px; /*no*/
+    }
+
+    .sprite-monitor-end {
+        width: 308px; /*no*/
+        height: 290px; /*no*/
+        background-image: url('../assets/img/main/section2/sprite-monitor-end.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }

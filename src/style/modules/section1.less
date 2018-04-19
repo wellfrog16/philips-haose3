@@ -27,43 +27,83 @@
         z-index: 10;
     }
 
-    .next {
-        width: 100px;
-        height: 100px;
-        background-color: palegreen;
+    .tips {
+        @url: '../assets/img/main/section1/tips.png';
+
+        width: 100%;
+        height: image-height(@url);
+        background-image: url(@url);
+        background-size: 100% auto;
         position: absolute;
-        top: 220px;
-        left: 480px;
-        opacity: 0.8;
+        top: 195px;
+        left: 0;
         display: none;
     }
 
+    .next {
+        @url: '../assets/img/common/loading/1.png';
+
+        background-image: url(@url);
+        background-position: center;
+        width: image-width(@url);
+        height: image-height(@url);
+        position: absolute;
+        top: 220px;
+        left: 480px;
+        display: none;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+
+    // .monitor {
+    //     @url: '../assets/img/main/section1/monitor.png';
+
+    //     background-image: url(@url);
+    //     background-size: 100%;
+    //     width: image-width(@url);
+    //     height: image-height(@url);
+    //     margin: 475px auto 0 auto;
+    //     overflow: hidden;
+    // }
+
     .monitor {
-        @url: '../assets/img/main/section1/monitor.png';
+        @url: '../assets/img/main/section1/sprite.png';
 
         background-image: url(@url);
         background-size: 100%;
-        width: image-width(@url);
-        height: image-height(@url);
-        margin: 475px auto 0 auto;
+        width: 580px;
+        height: 455px;
+        margin: 385px auto 0 auto;
         overflow: hidden;
     }
 
-    .screen {
-        @url: '../assets/img/main/section1/screen.png';
+    .monitor-text {
+        @url: '../assets/img/main/section1/sprite-text.png';
 
         background-image: url(@url);
         background-size: 100%;
-        width: image-width(@url);
-        height: image-height(@url);
-        margin: 10px auto 0 auto;
+        width: 580px;
+        height: 455px;
+        margin: 385px auto 0 auto;
+        overflow: hidden;
+        display: none;
     }
+
+    // .screen {
+    //     @url: '../assets/img/main/section1/screen.png';
+
+    //     background-image: url(@url);
+    //     background-size: 100%;
+    //     width: image-width(@url);
+    //     height: image-height(@url);
+    //     margin: 10px auto 0 auto;
+    // }
 
     .button {
         position: absolute;
         width: 100%;
         // bottom: 108px;
-        top: 968px;
+        top: 880px;
 
         span {
             @url: '../assets/img/main/section1/btn.png';

@@ -57,9 +57,8 @@ define([
 
                 { 'src': 'main/section1/bg.jpg' },
                 { 'src': 'main/section1/btn.png' },
-                { 'src': 'main/section1/monitor.png' },
-                { 'src': 'main/section1/screen.png' },
-                { 'src': 'main/section1/bg.jpg' },
+                { 'src': 'main/section1/sprite-text.png' },
+                { 'src': 'main/section1/sprite.png' },
 
                 { 'src': 'main/section2/clue1-ball.png' },
                 { 'src': 'main/section2/clue1-door.png' },
@@ -71,6 +70,12 @@ define([
                 { 'src': 'main/section2/hongbao-success.png' },
                 { 'src': 'main/section2/hongbao.png' },
                 { 'src': 'main/section2/room.jpg' },
+                { 'src': 'main/section2/sprite-ball.png' },
+                { 'src': 'main/section2/sprite-monitor-ball.png' },
+                { 'src': 'main/section2/sprite-monitor-door.png' },
+                { 'src': 'main/section2/sprite-monitor-game.png' },
+                { 'src': 'main/section2/sprite-monitor-poster.png' },
+                { 'src': 'main/section2/sprite-paper.png' },
                 { 'src': 'main/section2/tuniu-btn.png' },
                 { 'src': 'main/section2/tuniu-step-1.png' },
                 { 'src': 'main/section2/tuniu-step-2.png' }

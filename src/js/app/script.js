@@ -19,6 +19,8 @@ define([
         // 如果是手机端，加载横屏提示
         if (!utils.isPC) { $('.sys-container').append(htmlBlock); }
 
+        helper.$openid = utils.getUrlParam('o') || 'test' + Math.floor(Math.random() * 10000);
+
         loader(() => {
             section1.mount();
             section2.mount();
