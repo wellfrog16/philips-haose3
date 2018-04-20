@@ -71,22 +71,40 @@
 
         background-image: url(@url);
         background-size: 100%;
-        width: 580px;
-        height: 455px;
+        width: 590px;
+        height: 465px;
         margin: 385px auto 0 auto;
         overflow: hidden;
     }
 
     .monitor-text {
-        @url: '../assets/img/main/section1/sprite-text.png';
+        // @url: '../assets/img/main/section1/sprite-text.png';
+        @url: '../assets/img/main/section1/monitor.png';
 
         background-image: url(@url);
         background-size: 100%;
-        width: 580px;
-        height: 455px;
+        width: image-width(@url);
+        height: image-height(@url);
         margin: 385px auto 0 auto;
         overflow: hidden;
         display: none;
+    }
+
+    .text {
+        @url: '../assets/img/main/section1/text.png';
+
+        background-image: url(@url);
+        background-size: 100%;
+        width: image-width(@url);
+        height: 260px;
+        margin: 40px auto 0 auto;
+        overflow: hidden;
+        background-position-y: 115%;
+        background-repeat: no-repeat;
+    }
+
+    .text-animate {
+        animation: kf-monitor-text 8000ms linear;
     }
 
     // .screen {

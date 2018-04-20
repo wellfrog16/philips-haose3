@@ -54,6 +54,7 @@
         'loader': 'app/loader',
         'script': 'app/script',
         'music': 'app/music',
+        'share': 'app/share',
 
         // section
         // --------------------------------------

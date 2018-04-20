@@ -31,7 +31,7 @@ define([
 
         setTimeout(() => {
             myScroll.refresh();
-        }, 0);
+        }, 100);
 
         this.$root.find('.room div').autofixStyle({ baseWidth: 1136 });
 
@@ -43,7 +43,7 @@ define([
         // 场景动画
         const t1 = frameplayer({
             target: $('.sprite-ball'),
-            total: 10,
+            total: 18,
             row: 5,
             loop: true,
             loopDelay: 0,
@@ -57,7 +57,7 @@ define([
 
         const t2 = frameplayer({
             target: $('.sprite-paper'),
-            total: 5,
+            total: 10,
             row: 5,
             loop: true,
             loopDelay: 0,
@@ -68,6 +68,15 @@ define([
         });
 
         t2.play();
+
+        // 隐藏提示
+        myScroll.on('scrollStart', () => {
+            this.$root.find('.help').fadeOut();
+        });
+
+        this.$root.find('.help').on('touchstart', () => {
+            this.$root.find('.help').fadeOut();
+        });
     };
 
     let randomName = '';
@@ -77,7 +86,7 @@ define([
     section.bindClue = function() {
         for (const index in clues) {
             // 打开线索
-            this.$root.find(`.room .${clues[index]}`).hammer().on('tap', () => {
+            this.$root.find(`.room .${clues[index]}, .room .focus-${clues[index]}`).hammer().on('tap', () => {
                 helper.$logo.show();
                 this.$root.find(`.tips, .tips .${clues[index]}`).fadeIn();
                 if (clues1.indexOf(clues[index]) !== -1) {
@@ -86,7 +95,9 @@ define([
                     // 关闭销毁逐帧
                     player[clues[index]].destroy();
 
-                    if (randomName === clues[index]) { randomName = randomPlay(); }
+                    if (randomName === clues[index]) {
+                        randomName = randomPlay();
+                    }
                 }
             });
 
@@ -112,13 +123,26 @@ define([
         // 途牛
         let step = 1;
         this.$root.find('.room .tuniu').hammer().on('tap', () => {
-            step = 1;
-            this.$root.find('.tips, .tips .tuniu').fadeIn();
+            $('.sys-block').css('z-index', '-1');
+            $.get('http://test.tron-m.com/api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
+                // 如果openid已经存在
+                if (res.result) {
+                    this.$root.find('.tips, .tips .tuniu').fadeIn();
+                    this.$root.find('.tuniu .step1, .tuniu .step2, .button').hide();
+                    this.$root.find('.tuniu .step3').fadeIn();
+                } else {
+                    step = 1;
+                    this.$root.find('.tips, .tips .tuniu').fadeIn();
+                    this.$root.find('.tips .tuniu .step1').fadeIn();
+                    this.$root.find('.tips .tuniu .button').fadeIn();
+                }
+                helper.$logo.show();
+            });
         });
 
         // 途牛按钮
         this.$root.find('.tips .tuniu .button').hammer().on('tap', () => {
-            helper.$logo.show();
+            // helper.$logo.show();
             if (step === 1) {
                 this.$root.find('.tips .tuniu .step1').fadeOut();
                 this.$root.find('.tips .tuniu .step2').fadeIn();
@@ -134,6 +158,7 @@ define([
                         contentType: 'application/json',
                         data: JSON.stringify({
                             'openId': helper.$openid,
+                            // 'openId': 'test2018',
                             'activityId': 20180413,
                             'telNo': mobile
                         }),
@@ -155,6 +180,13 @@ define([
             this.$root.find('.tips, .tips .tuniu').fadeOut();
             this.$root.find('.tuniu').remove();
             helper.$logo.hide();
+            $('.sys-block').removeAttr('style');
+        });
+
+        this.$root.find('.close').hammer().on('tap', () => {
+            this.$root.find('.tips, .tips .tuniu, .step').fadeOut();
+            helper.$logo.hide();
+            $('.sys-block').removeAttr('style');
         });
 
         // 拆红包
@@ -167,7 +199,8 @@ define([
                 url: 'https://api.sames.cc/lottery',
                 data: {
                     aId: '762E1UG0',
-                    uId: 'oQlFDwpx_m5qvFmBWlVcI0-y0Svk'
+                    // uId: 'oQlFDwpx_m5qvFmBWlVcI0-y0Svk'
+                    uId: helper.$openid
                 },
                 success: (res) => {
                     if (res.code === 200) {
@@ -175,7 +208,7 @@ define([
                     } else {
                         this.$root.find('.tips .hongbao .failed').fadeIn();
                     }
-                    alert(res.code);
+                    // alert(res.code);
                 }
             });
         });
@@ -207,7 +240,7 @@ define([
             },
             destroy() {
                 this.target && this.target.stop();
-                $('.sprite-monitor-game').remove();
+                $('.sprite-monitor-game, .focus-game').remove();
             }
         },
         ball: {
@@ -229,7 +262,7 @@ define([
             },
             destroy() {
                 this.target && this.target.stop();
-                $('.sprite-monitor-ball').remove();
+                $('.sprite-monitor-ball, .focus-ball').remove();
             }
         },
         poster: {
@@ -251,7 +284,7 @@ define([
             },
             destroy() {
                 this.target && this.target.stop();
-                $('.sprite-monitor-poster').remove();
+                $('.sprite-monitor-poster, .focus-poster').remove();
             }
         },
         door: {
@@ -273,7 +306,7 @@ define([
             },
             destroy() {
                 this.target && this.target.stop();
-                $('.sprite-monitor-door').remove();
+                $('.sprite-monitor-door, .focus-door').remove();
             }
         },
         end: {
@@ -307,6 +340,7 @@ define([
             return;
         }
         player[clues1[num - 1]].play();
+        section.$root.find(`.focus-${clues1[num - 1]}`).show();
 
         return clues1[num - 1];
     }

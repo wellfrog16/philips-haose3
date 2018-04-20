@@ -64,8 +64,8 @@
         .ball {
             top: 757px; /*no*/
             left: 375px; /*no*/
-            width: 120px; /*no*/
-            height: 130px; /*no*/
+            width: 500px; /*no*/
+            height: 360px; /*no*/
         }
 
         .game-crate {
@@ -162,7 +162,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-position-y: 200px;
+            background-position-y: 130px;
         }
 
         .step1 {
@@ -199,7 +199,7 @@
 
         .text {
             position: absolute;
-            top: 680px;
+            top: 610px;
             text-align: center;
             width: 100%;
 
@@ -219,6 +219,15 @@
             width: 100%;
             font-size: 30px;
             color: #fff;
+        }
+
+        .close {
+            font-size: 60px; /*no*/
+            color: #fff;
+            position: absolute;
+            top: 120px;
+            right: 120px;
+            z-index: 2;
         }
     }
 
@@ -255,7 +264,19 @@
     }
 
     .hongbao-show {
-        animation: kf-scale 1000ms linear;
+        animation: kf-scale 500ms linear;
+    }
+
+    .help {
+        position: fixed;
+        z-index: 5;
+        background-image: url('../assets/img/main/section2/help.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        bottom: 0;
+        height: 200px;
     }
 
     .sprite {
@@ -266,16 +287,16 @@
     }
 
     .sprite-ball {
-        width: 120px; /*no*/
-        height: 120px; /*no*/
+        width: 500px; /*no*/
+        height: 360px; /*no*/
         background-image: url('../assets/img/main/section2/sprite-ball.png');
         top: 757px; /*no*/
         left: 375px; /*no*/
     }
 
     .sprite-paper {
-        width: 404px; /*no*/
-        height: 327px; /*no*/
+        width: 430px; /*no*/
+        height: 370px; /*no*/
         background-image: url('../assets/img/main/section2/sprite-paper.png');
         top: 0; /*no*/
         left: 700px; /*no*/
@@ -320,6 +341,53 @@
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
+
+    .focus {
+        position: absolute;
+        display: none;
+    }
+
+    .focus-animate {
+        transform-origin: center center;
+        animation: kf-breathe 500ms linear 250ms infinite;
+    }
+
+    .focus-poster {
+        left: 135px; /*no*/
+        top: 90px; /*no*/
+    }
+
+    .focus-ball {
+        left: 480px; /*no*/
+        top: 850px; /*no*/
+    }
+
+    .focus-door {
+        left: 1190px; /*no*/
+        top: 450px; /*no*/
+    }
+
+    .focus-game {
+        left: 500px; /*no*/
+        top: 400px; /*no*/
+    }
+
+    .animate {
+        position: absolute;
+    }
+
+    .animate-tuniu {
+        @url: '../assets/img/main/section2/tuniu.png';
+
+        display: block;
+        background-image: url(@url);
+        background-size: 100%;
+        width: image-width(@url); /*no*/
+        height: image-height(@url); /*no*/
+        top: 569px; /*no*/
+        left: 25px; /*no*/
+        animation: kf-tuniu-paper 4000ms linear infinite alternate;
+    }
 }
 
 // pad
@@ -336,6 +404,25 @@
 
             .text {
                 top: 550px;
+            }
+        }
+    }
+}
+
+// pad
+@media screen and (max-height: 500px) {
+    .section2 {
+        .tuniu-container {
+            .step {
+                background-position-y: 0;
+            }
+
+            .button {
+                top: 620px;
+            }
+
+            .text {
+                top: 480px;
             }
         }
     }

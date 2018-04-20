@@ -10,6 +10,8 @@
     <!-- css reset -->
     <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
 
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
     <!-- 仅ie9和其他现代浏览器开启路由 -->
     <!--[if (gte IE 9)|(!IE)]><!--> 
         <script src="https://cdn.bootcss.com/Director/1.2.8/director.min.js"></script>
@@ -38,11 +40,10 @@
           s.parentNode.insertBefore(hm, s);
         })();
     </script>
-        
 </head>
 <body>
     <div class="sys-container"></div>
-    <audio src="http://frog.dreamersky.com/audio/bg1.mp3" id="h5-bg" preload="auto"></audio>
+    <audio src="./assets/audio/bg.mp3" id="h5-bg" preload="auto"></audio>
     <script>
         // 自动播放，兼容，目前只有这个办法，利用微信接口。
         // 还要设置上面的audio标签，以及修改music模块非自动播放配置和html

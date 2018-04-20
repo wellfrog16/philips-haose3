@@ -41,24 +41,26 @@ define([
             this.$root.find('.next').fadeIn();
             this.$root.find('.tips').fadeIn();
 
-            this.target.stop();
+            this.$root.find('.monitor-text').fadeIn();
+            this.$root.find('.text').addClass('text-animate');
+            // this.target.stop();
             this.$root.find('.monitor').remove();
-            this.target = frameplayer({
-                target: this.$root.find('.monitor-text'),
-                total: 10,
-                row: 5,
-                loop: true,
-                loopDelay: 0,
-                // loopTimes:3,
-                fps: 2,
-                scale: 1,
-                autosize: false
-            });
+            // this.target = frameplayer({
+            //     target: this.$root.find('.monitor-text'),
+            //     total: 10,
+            //     row: 5,
+            //     loop: true,
+            //     loopDelay: 0,
+            //     // loopTimes:3,
+            //     fps: 2,
+            //     scale: 1,
+            //     autosize: false
+            // });
 
-            this.target.play();
+            // this.target.play();
         });
 
-        this.$root.find('.tips, .next, .monitor-text').hammer().on('tap', () => {
+        this.$root.find('.monitor-text').hammer().on('tap', () => {
             this.target.stop();
 
             // 注销场景

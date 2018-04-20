@@ -53,6 +53,8 @@ define([
             loader.maintainScriptOrder = true;
 
             var source = [
+                { 'src': 'common/icon/icon-aim.png' },
+                { 'src': 'common/icon/icon-close.png' },
                 { 'src': 'common/icon/icon-music.png' },
 
                 { 'src': 'main/section1/bg.jpg' },
