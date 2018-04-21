@@ -177,12 +177,13 @@
         .step3 {
             background-image: url('../assets/img/main/section2/tuniu-success.png');
             display: none;
+            background-position-y: center;
         }
 
         .button {
             position: absolute;
             width: 100%;
-            top: 866px;
+            top: 830px;
             z-index: 2;
 
             span {
@@ -246,20 +247,27 @@
             left: 0;
         }
 
+        .end {
+            background-image: url('../assets/img/main/section2/hongbao-end.png');
+            background-position-y: center;
+        }
+
         .ready {
             background-image: url('../assets/img/main/section2/hongbao.png');
+            display: none;
+            background-position-y: center;
         }
 
         .success {
             background-image: url('../assets/img/main/section2/hongbao-success.png');
             display: none;
-            background-position-y: 100px;
+            background-position-y: center;
         }
 
         .failed {
             background-image: url('../assets/img/main/section2/hongbao-failed.png');
             display: none;
-            background-position-y: 100px;
+            background-position-y: center;
         }
     }
 
@@ -359,34 +367,47 @@
 
     .focus-ball {
         left: 480px; /*no*/
-        top: 850px; /*no*/
+        top: 860px; /*no*/
     }
 
     .focus-door {
-        left: 1190px; /*no*/
-        top: 450px; /*no*/
+        left: 1210px; /*no*/
+        top: 470px; /*no*/
     }
 
     .focus-game {
-        left: 500px; /*no*/
-        top: 400px; /*no*/
+        left: 530px; /*no*/
+        top: 430px; /*no*/
     }
 
     .animate {
         position: absolute;
     }
 
-    .animate-tuniu {
-        @url: '../assets/img/main/section2/tuniu.png';
+    // .animate-tuniu {
+    //     @url: '../assets/img/main/section2/tuniu.png';
+
+    //     display: block;
+    //     background-image: url(@url);
+    //     background-size: 100%;
+    //     width: image-width(@url); /*no*/
+    //     height: image-height(@url); /*no*/
+    //     top: 569px; /*no*/
+    //     left: 25px; /*no*/
+    //     animation: kf-tuniu-paper 4000ms linear infinite alternate;
+    // }
+
+    .animate-tuniu-click {
+        @url: '../assets/img/main/section2/tuniu-click.png';
 
         display: block;
         background-image: url(@url);
         background-size: 100%;
         width: image-width(@url); /*no*/
         height: image-height(@url); /*no*/
-        top: 569px; /*no*/
+        top: 420px; /*no*/
         left: 25px; /*no*/
-        animation: kf-tuniu-paper 4000ms linear infinite alternate;
+        animation: kf-tuniu-click 400ms linear infinite alternate;
     }
 }
 

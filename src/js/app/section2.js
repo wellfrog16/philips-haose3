@@ -33,7 +33,9 @@ define([
             myScroll.refresh();
         }, 100);
 
-        this.$root.find('.room div').autofixStyle({ baseWidth: 1136 });
+        setTimeout(() => {
+            this.$root.find('.room div').autofixStyle({ baseWidth: 1136 });
+        }, 300);
 
         this.bindClue();
 
@@ -88,7 +90,7 @@ define([
             // 打开线索
             this.$root.find(`.room .${clues[index]}, .room .focus-${clues[index]}`).hammer().on('tap', () => {
                 helper.$logo.show();
-                this.$root.find(`.tips, .tips .${clues[index]}`).fadeIn();
+                this.$root.find(`.tips, .tips .${clues[index]}`).show();
                 if (clues1.indexOf(clues[index]) !== -1) {
                     clues1.splice(clues1.indexOf(clues[index]), 1);
 
@@ -113,7 +115,7 @@ define([
                     setTimeout(() => {
                         this.$root.find('.tips').fadeIn();
                         this.$root.find('.tips .hongbao').show().addClass('hongbao-show');
-                    }, 2500);
+                    }, 2000);
                 } else {
                     helper.$logo.hide();
                 }
@@ -122,7 +124,7 @@ define([
 
         // 途牛
         let step = 1;
-        this.$root.find('.room .tuniu').hammer().on('tap', () => {
+        this.$root.find('.room .tuniu, .animate-tuniu-click').hammer().on('tap', () => {
             $('.sys-block').css('z-index', '-1');
             $.get('http://test.tron-m.com/api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
                 // 如果openid已经存在
@@ -189,6 +191,12 @@ define([
             $('.sys-block').removeAttr('style');
         });
 
+        // 红包
+        this.$root.find('.tips .hongbao .end').hammer().on('tap', () => {
+            this.$root.find('.tips .hongbao .end').fadeOut();
+            this.$root.find('.tips .hongbao .ready').fadeIn();
+        });
+
         // 拆红包
         this.$root.find('.tips .hongbao .ready').hammer().on('tap', () => {
             this.$root.find('.tips .hongbao .ready').fadeOut();
@@ -203,7 +211,7 @@ define([
                     uId: helper.$openid
                 },
                 success: (res) => {
-                    if (res.code === 200) {
+                    if (res.code === 200 || res.code === 304) {
                         this.$root.find('.tips .hongbao .success').fadeIn();
                     } else {
                         this.$root.find('.tips .hongbao .failed').fadeIn();
@@ -216,7 +224,7 @@ define([
         // 链接跳转
         this.$root.find('.tips .hongbao .result').hammer().on('tap', () => {
             helper.$logo.hide();
-            window.open('http://www.jd.com');
+            window.open('https://sale.jd.com/m/act/Xx1afUwqFQn.html');
         });
     };
 

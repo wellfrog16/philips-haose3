@@ -35,25 +35,39 @@
         background-image: url(@url);
         background-size: 100% auto;
         position: absolute;
-        top: 195px;
+        top: 235px;
         left: 0;
         display: none;
     }
 
-    .next {
-        @url: '../assets/img/common/loading/1.png';
+    .hand {
+        @url: '../assets/img/main/section1/hand.png';
 
-        background-image: url(@url);
-        background-position: center;
         width: image-width(@url);
         height: image-height(@url);
+        background-image: url(@url);
+        background-size: 100%;
         position: absolute;
-        top: 220px;
-        left: 480px;
+        top: 690px;
+        right: 150px;
         display: none;
-        transform: scale(0.5);
-        transform-origin: 0 0;
+        animation: kf-breathe 300ms linear infinite;
     }
+
+    // .next {
+    //     @url: '../assets/img/common/loading/1.png';
+
+    //     background-image: url(@url);
+    //     background-position: center;
+    //     width: image-width(@url);
+    //     height: image-height(@url);
+    //     position: absolute;
+    //     top: 220px;
+    //     left: 480px;
+    //     display: none;
+    //     transform: scale(0.5);
+    //     transform-origin: 0 0;
+    // }
 
     // .monitor {
     //     @url: '../assets/img/main/section1/monitor.png';
@@ -99,12 +113,12 @@
         height: 260px;
         margin: 40px auto 0 auto;
         overflow: hidden;
-        background-position-y: 115%;
+        background-position-y: 140%;
         background-repeat: no-repeat;
     }
 
     .text-animate {
-        animation: kf-monitor-text 8000ms linear;
+        animation: kf-monitor-text 2000ms linear;
     }
 
     // .screen {

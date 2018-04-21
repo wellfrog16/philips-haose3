@@ -39,38 +39,26 @@ define([
         this.$root.find('.button span').hammer().on('tap', () => {
             this.$root.find('.bg, .button').fadeOut();
             this.$root.find('.next').fadeIn();
-            this.$root.find('.tips').fadeIn();
+            setTimeout(() => {
+                this.$root.find('.monitor-text, .hand').hammer().on('tap', () => {
+                    this.target.stop();
+
+                    // 注销场景
+                    section.destroy();
+
+                    // 隐藏logo
+                    helper.$logo.hide();
+
+                    // 场景2事件绑定
+                    section2.bind();
+                });
+
+                this.$root.find('.tips, .hand').fadeIn();
+            }, 2500);
 
             this.$root.find('.monitor-text').fadeIn();
             this.$root.find('.text').addClass('text-animate');
-            // this.target.stop();
             this.$root.find('.monitor').remove();
-            // this.target = frameplayer({
-            //     target: this.$root.find('.monitor-text'),
-            //     total: 10,
-            //     row: 5,
-            //     loop: true,
-            //     loopDelay: 0,
-            //     // loopTimes:3,
-            //     fps: 2,
-            //     scale: 1,
-            //     autosize: false
-            // });
-
-            // this.target.play();
-        });
-
-        this.$root.find('.monitor-text').hammer().on('tap', () => {
-            this.target.stop();
-
-            // 注销场景
-            section.destroy();
-
-            // 隐藏logo
-            helper.$logo.hide();
-
-            // 场景2事件绑定
-            section2.bind();
         });
     };
 
