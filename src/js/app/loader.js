@@ -76,6 +76,7 @@ define([
                 { 'src': 'main/section2/hongbao-end.png' },
                 { 'src': 'main/section2/hongbao-failed.png' },
                 { 'src': 'main/section2/hongbao-success.png' },
+                { 'src': 'main/section2/hongbao-finished.png' },
                 { 'src': 'main/section2/hongbao.png' },
                 { 'src': 'main/section2/room.jpg' },
                 { 'src': 'main/section2/sprite-ball.png' },
