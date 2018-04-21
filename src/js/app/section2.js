@@ -211,8 +211,10 @@ define([
                     uId: helper.$openid
                 },
                 success: (res) => {
-                    if (res.code === 200 || res.code === 304) {
+                    if (res.code === 200) {
                         this.$root.find('.tips .hongbao .success').fadeIn();
+                    } else if (res.code === 304) {
+                        this.$root.find('.tips .hongbao .finished').fadeIn();
                     } else {
                         this.$root.find('.tips .hongbao .failed').fadeIn();
                     }
