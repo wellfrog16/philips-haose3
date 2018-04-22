@@ -24,7 +24,7 @@ define([
         share({
             title: '2018密室逃脱之猎艳行动',
             desc: '猎艳行动，正在等你启动！',
-            imgUrl: 'http://test.tron-m.com/philips/haose3/assets/img/main/share.png'
+            imgUrl: 'http://www.tron-m.com/philips/248E9QHSB/assets/img/main/share.png'
         });
 
         helper.$openid = utils.getUrlParam('o') || 'test' + Math.floor(Math.random() * 1000000);

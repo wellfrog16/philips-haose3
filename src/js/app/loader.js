@@ -34,7 +34,7 @@ define([
         ];
 
         loader.on('complete', onComplete);
-        loader.loadManifest(source, true, 'assets/img/');
+        loader.loadManifest(source, true, 'http://cdn.tron-m.com/philips/haose3/assets/img/');
 
         function onComplete() {
             // 加载logo
@@ -95,7 +95,7 @@ define([
 
             loader.on('progress', onProgress);
             loader.on('complete', onComplete);
-            loader.loadManifest(source, true, 'assets/img/');
+            loader.loadManifest(source, true, 'http://cdn.tron-m.com/philips/haose3/assets/img/');
 
             function onComplete() {
                 setTimeout(() => {

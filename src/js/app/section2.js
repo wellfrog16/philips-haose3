@@ -126,7 +126,7 @@ define([
         let step = 1;
         this.$root.find('.room .tuniu, .animate-tuniu-click').hammer().on('tap', () => {
             $('.sys-block').css('z-index', '-1');
-            $.get('http://test.tron-m.com/api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
+            $.get('http://www.tron-m.com/tron-api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
                 // 如果openid已经存在
                 if (res.result) {
                     this.$root.find('.tips, .tips .tuniu').fadeIn();
@@ -155,7 +155,7 @@ define([
                     step++;
                     // 留资
                     $.ajax({
-                        url: 'http://test.tron-m.com/api/api/addRecord.do',
+                        url: 'http://www.tron-m.com/tron-api/api/addRecord.do',
                         type: 'POST',
                         contentType: 'application/json',
                         data: JSON.stringify({
@@ -170,7 +170,7 @@ define([
                         }
                     });
                     // 暂时不写入回调
-                    this.$root.find('.tips .tuniu .step2, .tips .tuniu .button').fadeOut();
+                    this.$root.find('.tips .tuniu .step2, .tips .tuniu .button, .tips .tuniu .close').hide();
                     this.$root.find('.tips .tuniu .step3').fadeIn();
                 } else {
                     this.$root.find('.error').text('手机号码格式错误');
@@ -181,6 +181,7 @@ define([
         this.$root.find('.tips .tuniu .step3').hammer().on('tap', () => {
             this.$root.find('.tips, .tips .tuniu').fadeOut();
             this.$root.find('.tuniu').remove();
+            this.$root.find('.animate-tuniu-click').unbind();
             helper.$logo.hide();
             $('.sys-block').removeAttr('style');
         });
@@ -211,14 +212,14 @@ define([
                     uId: helper.$openid
                 },
                 success: (res) => {
-                    if (res.code === 200) {
+                    if (parseInt(res.code) === 200) {
                         this.$root.find('.tips .hongbao .success').fadeIn();
-                    } else if (res.code === 304) {
+                    } else if (parseInt(res.code) === 304) {
                         this.$root.find('.tips .hongbao .finished').fadeIn();
                     } else {
                         this.$root.find('.tips .hongbao .failed').fadeIn();
                     }
-                    // alert(res.code);
+                    // alert(`openid: ${helper.$openid}, code: ${res.code}`);
                 }
             });
         });

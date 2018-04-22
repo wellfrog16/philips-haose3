@@ -119,32 +119,32 @@
         }
 
         .door {
-            background-image: url('../assets/img/main/section2/clue1-door.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue1-door.png');
             background-size: 100% auto;
         }
 
         .ball {
-            background-image: url('../assets/img/main/section2/clue1-ball.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue1-ball.png');
             background-size: 100% auto;
         }
 
         .game {
-            background-image: url('../assets/img/main/section2/clue1-game.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue1-game.png');
             background-size: 100% auto;
         }
 
         .poster {
-            background-image: url('../assets/img/main/section2/clue1-poster.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue1-poster.png');
             background-size: 100% auto;
         }
 
         .calendar {
-            background-image: url('../assets/img/main/section2/clue2-calendar.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue2-calendar.png');
             background-size: 100% auto;
         }
 
         .file {
-            background-image: url('../assets/img/main/section2/clue2-file.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/clue2-file.png');
             background-size: 100% auto;
         }
     }
@@ -166,16 +166,16 @@
         }
 
         .step1 {
-            background-image: url('../assets/img/main/section2/tuniu-step-1.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/tuniu-step-1.png');
         }
 
         .step2 {
-            background-image: url('../assets/img/main/section2/tuniu-step-2.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/tuniu-step-2.png');
             display: none;
         }
 
         .step3 {
-            background-image: url('../assets/img/main/section2/tuniu-success.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/tuniu-success.png');
             display: none;
             background-position-y: center;
         }
@@ -187,13 +187,14 @@
             z-index: 2;
 
             span {
-                @url: '../assets/img/main/section2/tuniu-btn.png';
+                @url: '@{g-baseUrl}/assets/img/main/section2/tuniu-btn.png';
+                @url-local: '../assets/img/main/section2/tuniu-btn.png';
 
                 display: block;
                 background-image: url(@url);
                 background-size: 100%;
-                width: image-width(@url);
-                height: image-height(@url);
+                width: image-width(@url-local);
+                height: image-height(@url-local);
                 margin: 0 auto;
             }
         }
@@ -248,30 +249,30 @@
         }
 
         .end {
-            background-image: url('../assets/img/main/section2/hongbao-end.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/hongbao-end.png');
             background-position-y: center;
         }
 
         .ready {
-            background-image: url('../assets/img/main/section2/hongbao.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/hongbao.png');
             display: none;
             background-position-y: center;
         }
 
         .success {
-            background-image: url('../assets/img/main/section2/hongbao-success.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/hongbao-success.png');
             display: none;
             background-position-y: center;
         }
 
         .failed {
-            background-image: url('../assets/img/main/section2/hongbao-failed.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/hongbao-failed.png');
             display: none;
             background-position-y: center;
         }
 
         .finished {
-            background-image: url('../assets/img/main/section2/hongbao-finished.png');
+            background-image: url('@{g-baseUrl}/assets/img/main/section2/hongbao-finished.png');
             display: none;
             background-position-y: center;
         }
@@ -284,7 +285,7 @@
     .help {
         position: fixed;
         z-index: 5;
-        background-image: url('../assets/img/main/section2/help.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/help.png');
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -303,7 +304,7 @@
     .sprite-ball {
         width: 500px; /*no*/
         height: 360px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-ball.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-ball.png');
         top: 757px; /*no*/
         left: 375px; /*no*/
     }
@@ -311,7 +312,7 @@
     .sprite-paper {
         width: 430px; /*no*/
         height: 370px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-paper.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-paper.png');
         top: 0; /*no*/
         left: 700px; /*no*/
     }
@@ -319,7 +320,7 @@
     .sprite-monitor-game {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-monitor-game.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-monitor-game.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
@@ -327,7 +328,7 @@
     .sprite-monitor-ball {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-monitor-ball.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-monitor-ball.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
@@ -335,7 +336,7 @@
     .sprite-monitor-poster {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-monitor-poster.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-monitor-poster.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
@@ -343,7 +344,7 @@
     .sprite-monitor-door {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-monitor-door.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-monitor-door.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
@@ -351,7 +352,7 @@
     .sprite-monitor-end {
         width: 308px; /*no*/
         height: 290px; /*no*/
-        background-image: url('../assets/img/main/section2/sprite-monitor-end.png');
+        background-image: url('@{g-baseUrl}/assets/img/main/section2/sprite-monitor-end.png');
         left: 695px; /*no*/
         top: 305px; /*no*/
     }
@@ -404,13 +405,14 @@
     // }
 
     .animate-tuniu-click {
-        @url: '../assets/img/main/section2/tuniu-click.png';
+        @url: '@{g-baseUrl}/assets/img/main/section2/tuniu-click.png';
+        @url-local: '../assets/img/main/section2/tuniu-click.png';
 
         display: block;
         background-image: url(@url);
         background-size: 100%;
-        width: image-width(@url); /*no*/
-        height: image-height(@url); /*no*/
+        width: image-width(@url-local); /*no*/
+        height: image-height(@url-local); /*no*/
         top: 420px; /*no*/
         left: 25px; /*no*/
         animation: kf-tuniu-click 400ms linear infinite alternate;
