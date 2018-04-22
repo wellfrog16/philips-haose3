@@ -30,16 +30,6 @@
         'jquery.browser': 'lib/jquery/jquery.browser',
         'jquery.hammer': 'lib/jquery/jquery.hammer',
         'hammer': 'lib/jquery/hammer.min',
-        // 'jquery.fullPage': 'lib/jquery/jquery.fullPage',
-        
-        // 'jquery.scrollTo': 'lib/jquery/jquery.scrollTo',
-
-        // 'swiper': 'lib/swiper/swiper-3.4.2.jquery.min',
-
-        // 'bootstrap': 'lib/bootstrap/bootstrap-3.3.7.min',
-
-        'velocity': ['lib/velocity/velocity.min'],
-        'velocity.ui': ['lib/velocity/velocity.ui.min'],
 
         // 滚动条
         'iscroll': 'lib/iscroll/iscroll-5.2.0',
@@ -64,8 +54,6 @@
     },
 
     shim: {
-        'velocity': ['jquery'],
-        'velocity.ui': ['velocity'],
         // 'bootstrap': ['jquery'],
         // // 'bootstrap' : ['css!./lib/bootstrap/bootstrap-3.3.7.min.css'],
         // 'swiper': ['jquery', 'css!./lib/swiper/swiper-3.4.2.min.css'],

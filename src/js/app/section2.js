@@ -18,6 +18,7 @@ define([
 
     let myScroll = null;
     let offsetX = 0;
+    let tuniuResult = null;
 
     section.bind = function() {
         offsetX = parseInt($('.room').width() * -0.4);
@@ -79,6 +80,11 @@ define([
         this.$root.find('.help').on('touchstart', () => {
             this.$root.find('.help').fadeOut();
         });
+
+        $.get('http://www.tron-m.com/tron-api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
+            tuniuResult = res.result;
+            // console.log(tuniuResult);
+        });
     };
 
     let randomName = '';
@@ -126,20 +132,18 @@ define([
         let step = 1;
         this.$root.find('.room .tuniu, .animate-tuniu-click').hammer().on('tap', () => {
             $('.sys-block').css('z-index', '-1');
-            $.get('http://www.tron-m.com/tron-api/api/getRecord.do?activityId=20180413&openId=' + helper.$openid, res => {
-                // 如果openid已经存在
-                if (res.result) {
-                    this.$root.find('.tips, .tips .tuniu').fadeIn();
-                    this.$root.find('.tuniu .step1, .tuniu .step2, .button').hide();
-                    this.$root.find('.tuniu .step3').fadeIn();
-                } else {
-                    step = 1;
-                    this.$root.find('.tips, .tips .tuniu').fadeIn();
-                    this.$root.find('.tips .tuniu .step1').fadeIn();
-                    this.$root.find('.tips .tuniu .button').fadeIn();
-                }
-                helper.$logo.show();
-            });
+            // 如果openid已经存在
+            if (tuniuResult) {
+                this.$root.find('.tips, .tips .tuniu').fadeIn();
+                this.$root.find('.tuniu .step1, .tuniu .step2, .button').hide();
+                this.$root.find('.tuniu .step3').fadeIn();
+            } else {
+                step = 1;
+                this.$root.find('.tips, .tips .tuniu').fadeIn();
+                this.$root.find('.tips .tuniu .step1').fadeIn();
+                this.$root.find('.tips .tuniu .button').fadeIn();
+            }
+            helper.$logo.show();
         });
 
         // 途牛按钮

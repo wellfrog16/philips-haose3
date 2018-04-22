@@ -27,11 +27,32 @@ define([
             imgUrl: 'http://www.tron-m.com/philips/248E9QHSB/assets/img/main/share.png'
         });
 
-        helper.$openid = utils.getUrlParam('o') || 'test' + Math.floor(Math.random() * 1000000);
-        // helper.$openid = utils.getUrlParam('o');
+        // helper.$openid = utils.getUrlParam('o') || 'test' + Math.floor(Math.random() * 1000000);
+        let openId = utils.getUrlParam('o');
 
-        // if (!helper.$openid) {
-        //     location.href = 'http://philips.ad-witch.cn';
+        // 干净的地址
+        if (!openId) {
+            if (localStorage.openId) {
+                helper.$openid = localStorage.openId;
+            } else {
+                location.href = 'http://philips.ad-witch.cn';
+            }
+        } else {
+            localStorage.openId = openId;
+            location.href = 'http://www.tron-m.com/philips/248E9QHSB';
+        }
+
+        // if (openId) {
+        //     helper.$openid = openId;
+        //     location.href = 'http://www.tron-m.com/philips/248E9QHSB';
+        // } else {
+        //     openId = utils.getUrlParam('o');
+
+        //     if (!openId) {
+        //         location.href = 'http://philips.ad-witch.cn';
+        //     } else {
+        //         localStorage.openId = openId;
+        //     }
         // }
 
         // alert(helper.$openid);
